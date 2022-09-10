@@ -10,6 +10,11 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  var nuevaMatriz=[];
+  for(var wil in objeto){
+    nuevaMatriz.push([wil,objeto[wil]]);
+  }
+  return nuevaMatriz;
 }
 
 
@@ -18,6 +23,16 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  var nuevoObjeto={};
+  for(var i=0;i<string.length;i++){
+    if (nuevoObjeto.hasOwnProperty(string[i])){
+      nuevoObjeto[string[i]]++;
+    }
+    else{
+      nuevoObjeto[string[i]]=1;
+    }
+  }
+  return nuevoObjeto;
 }
 
 
@@ -26,6 +41,17 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
+  var ordenado= '', mayuscula= '', minusculas= '';
+  for(var i=0;i<s.length;i++){
+    if(s[i]===s[i].toUpperCase()){
+      mayuscula+=s[i];
+    }
+    else{
+      minusculas+=s[i];
+    }
+  }
+  return mayuscula+minusculas;
+
 }
 
 
@@ -35,6 +61,18 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  var nuevoArray=str.split(" ");
+  var letrasseparadas='';
+  var palbrasInvertidas=[];
+  for(var i=0;i<nuevoArray.length;i++){
+    letrasseparadas=nuevoArray[i].split("");
+    letrasseparadas=letrasseparadas.reverse(""),
+    letrasseparadas=letrasseparadas.join(""),
+    palbrasInvertidas.push(letrasseparadas);
+    //en una linea plabrasIvertidas.push(nuevoArray[i].split("").reverse().join(""));
+  }
+  return palbrasInvertidas.join(" ");
+  
 } 
 
 
@@ -43,6 +81,13 @@ function capicua(numero){
   //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
+  var numeroAString=numero.toString();
+  for(var i=0;i<numeroAString.length/2;i++){
+    if(numeroAString[i] !== numeroAString[numeroAString.length-1-i]){
+      return "No es capicua";
+    }
+  }
+  return "Es capicua";
 }
 
 
